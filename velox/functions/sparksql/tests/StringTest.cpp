@@ -547,6 +547,21 @@ TEST_F(StringTest, repeat) {
       "integer overflow: 214749 * 10000");
 }
 
+TEST_F(StringTest, space) {
+  const auto space = [&](const std::optional<int32_t>& n) {
+    return evaluateOnce<std::string>("space(c0)", n);
+  };
+
+  EXPECT_EQ(space(0), "");
+  EXPECT_EQ(space(1), " ");
+  EXPECT_EQ(space(3), "   ");
+  // Non-positive counts return an empty string.
+  EXPECT_EQ(space(-1), "");
+  EXPECT_EQ(space(std::nullopt), std::nullopt);
+  VELOX_ASSERT_USER_THROW(
+      space(1048577), "Result size must be less than or equal to 1048576");
+}
+
 TEST_F(StringTest, replace) {
   const auto replace = [&](const std::optional<std::string>& str,
                            const std::optional<std::string>& replaced) {

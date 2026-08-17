@@ -195,6 +195,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     table.coverage tr:nth-child(66) td:nth-child(4) {background-color: #6BA81E;}
     table.coverage tr:nth-child(66) td:nth-child(5) {background-color: #6BA81E;}
     table.coverage tr:nth-child(67) td:nth-child(1) {background-color: #6BA81E;}
+    table.coverage tr:nth-child(67) td:nth-child(4) {background-color: #6BA81E;}
     table.coverage tr:nth-child(68) td:nth-child(1) {background-color: #6BA81E;}
     table.coverage tr:nth-child(68) td:nth-child(2) {background-color: #6BA81E;}
     table.coverage tr:nth-child(68) td:nth-child(4) {background-color: #6BA81E;}
@@ -274,7 +275,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     :spark:func:`conv`                         :spark:func:`hour`                         :spark:func:`next_day`                     some                                       :spark:func:`xxhash64`
     corr                                       :spark:func:`hypot`                        :spark:func:`not`                          :spark:func:`sort_array`                   :spark:func:`year`
     :spark:func:`cos`                          if                                         now                                        :spark:func:`soundex`                      :spark:func:`zip_with`
-    :spark:func:`cosh`                         ifnull                                     nth_value                                  space
+    :spark:func:`cosh`                         ifnull                                     nth_value                                  :spark:func:`space`                      
     :spark:func:`cot`                          :spark:func:`in`                           ntile                                      :spark:func:`spark_partition_id`
     count                                      initcap                                    nullif                                     :spark:func:`split`
     =========================================  =========================================  =========================================  =========================================  =========================================  ==  =========================================  ==  =========================================

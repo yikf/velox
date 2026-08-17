@@ -404,6 +404,13 @@ String Functions
 
         SELECT soundex('Miller'); -- "M460"
 
+.. spark:function:: space(n) -> varchar
+
+    Returns a string consisting of ``n`` spaces. Returns an empty string if
+    ``n`` is less than or equal to 0. ::
+
+        SELECT concat(space(2), '1'); -- "  1"
+
 .. spark:function:: split(string, delimiter[, limit]) -> array(string)
 
     Splits ``string`` around matches of ``delimiter`` and returns an array with at most ``limit`` elements.

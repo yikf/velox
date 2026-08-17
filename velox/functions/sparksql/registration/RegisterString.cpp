@@ -175,6 +175,7 @@ void registerStringFunctions(const std::string& prefix) {
       {prefix + "levenshtein"});
   registerFunction<RepeatFunction, Varchar, Varchar, int32_t>(
       {prefix + "repeat"});
+  registerFunction<SpaceFunction, Varchar, int32_t>({prefix + "space"});
   registerFunction<SoundexFunction, Varchar, Varchar>({prefix + "soundex"});
   registerFunction<Split, Array<Varchar>, Varchar, Varchar>({prefix + "split"});
   registerFunction<Split, Array<Varchar>, Varchar, Varchar, int32_t>(

@@ -1318,6 +1318,33 @@ struct RepeatFunction {
   }
 };
 
+/// space(n) -> varchar
+///
+///    Returns a string consisting of n spaces.
+///    If n is less than or equal to 0, an empty string is returned.
+///    Result size must be less than or equal to 1MB.
+template <typename T>
+struct SpaceFunction {
+  VELOX_DEFINE_FUNCTION_TYPES(T);
+
+  static constexpr bool is_default_ascii_behavior = true;
+
+  FOLLY_ALWAYS_INLINE void call(out_type<Varchar>& result, int32_t n) {
+    static constexpr int32_t kMaxResultSize = 1024 * 1024; // 1MB
+    if (n <= 0) {
+      result.resize(0);
+      return;
+    }
+    VELOX_USER_CHECK_LE(
+        n,
+        kMaxResultSize,
+        "Result size must be less than or equal to {}",
+        kMaxResultSize);
+    result.resize(n);
+    std::memset(result.data(), ' ', n);
+  }
+};
+
 template <typename T>
 struct SoundexFunction {
   VELOX_DEFINE_FUNCTION_TYPES(T);
