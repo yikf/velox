@@ -702,6 +702,22 @@ TEST_F(ArithmeticTest, hypot) {
   EXPECT_DOUBLE_EQ(5.70087712549569, hypot(3.5, -4.5).value());
 }
 
+TEST_F(ArithmeticTest, pi) {
+  const auto piValue = [&]() {
+    return evaluateOnce<double>("pi()", makeRowVector(ROW({}), 1));
+  };
+
+  EXPECT_EQ(piValue(), M_PI);
+}
+
+TEST_F(ArithmeticTest, e) {
+  const auto eulerConstantValue = [&]() {
+    return evaluateOnce<double>("e()", makeRowVector(ROW({}), 1));
+  };
+
+  EXPECT_EQ(eulerConstantValue(), M_E);
+}
+
 TEST_F(ArithmeticTest, cot) {
   const auto cot = [&](std::optional<double> a) {
     return evaluateOnce<double>("cot(c0)", a);

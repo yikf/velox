@@ -242,6 +242,10 @@ Mathematical Functions
         SELECT CAST(1 as DECIMAL(20, 3)) / CAST(20 as DECIMAL(20, 2)); -- decimal 0.0500000000000000000
         SELECT CAST(1 as DECIMAL(20, 3)) / CAST(0 as DECIMAL(20, 3)); -- NULL
 
+.. spark:function:: e() -> double
+
+    Returns Euler's number, ``2.718281828459045``.
+
 .. spark:function:: exp(x) -> double
 
     Returns Euler's number raised to the power of ``x``.
@@ -343,6 +347,10 @@ Mathematical Functions
         SELECT not true; -- false
         SELECT not false; -- true
         SELECT not NULL; -- NULL
+
+.. spark:function:: pi() -> double
+
+    Returns the value of ``pi``, ``3.141592653589793``.
 
 .. spark:function:: pmod(n, m) -> [same as n]
 

@@ -30,6 +30,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     table.coverage tr:nth-child(9) td:nth-child(3) {background-color: #6BA81E;}
     table.coverage tr:nth-child(10) td:nth-child(1) {background-color: #6BA81E;}
     table.coverage tr:nth-child(10) td:nth-child(3) {background-color: #6BA81E;}
+    table.coverage tr:nth-child(10) td:nth-child(4) {background-color: #6BA81E;}
     table.coverage tr:nth-child(10) td:nth-child(9) {background-color: #6BA81E;}
     table.coverage tr:nth-child(11) td:nth-child(1) {background-color: #6BA81E;}
     table.coverage tr:nth-child(11) td:nth-child(4) {background-color: #6BA81E;}
@@ -98,6 +99,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     table.coverage tr:nth-child(30) td:nth-child(4) {background-color: #6BA81E;}
     table.coverage tr:nth-child(30) td:nth-child(5) {background-color: #6BA81E;}
     table.coverage tr:nth-child(31) td:nth-child(1) {background-color: #6BA81E;}
+    table.coverage tr:nth-child(31) td:nth-child(2) {background-color: #6BA81E;}
     table.coverage tr:nth-child(31) td:nth-child(3) {background-color: #6BA81E;}
     table.coverage tr:nth-child(31) td:nth-child(5) {background-color: #6BA81E;}
     table.coverage tr:nth-child(31) td:nth-child(7) {background-color: #6BA81E;}
@@ -217,7 +219,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     any                                        current_catalog                            int                                        percent_rank                               :spark:func:`str_to_map`                       bit_or                                         :spark:func:`nth_value`
     approx_count_distinct                      current_database                           :spark:func:`isnan`                        percentile                                 string                                         :spark:func:`bit_xor`                          :spark:func:`ntile`
     approx_percentile                          current_date                               :spark:func:`isnotnull`                    percentile_approx                          struct                                         bool_and                                       percent_rank
-    :spark:func:`array`                        current_timestamp                          :spark:func:`isnull`                       pi                                         substr                                         bool_or                                        :spark:func:`rank`
+    :spark:func:`array`                        current_timestamp                          :spark:func:`isnull`                       :spark:func:`pi`                           substr                                         bool_or                                        :spark:func:`rank`
     :spark:func:`array_contains`               current_timezone                           java_method                                :spark:func:`pmod`                         :spark:func:`substring`                        :spark:func:`collect_list`                     :spark:func:`row_number`
     :spark:func:`array_distinct`               current_user                               :spark:func:`json_array_length`            posexplode                                 :spark:func:`substring_index`                  :spark:func:`collect_set`
     :spark:func:`array_except`                 date                                       :spark:func:`json_object_keys`             posexplode_outer                           sum                                            :spark:func:`corr`
@@ -238,7 +240,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     assert_true                                dense_rank                                 :spark:func:`locate`                       regexp                                     transform_keys                                 :spark:func:`max`
     :spark:func:`atan`                         div                                        :spark:func:`log`                          :spark:func:`regexp_extract`               transform_values                               :spark:func:`max_by`
     :spark:func:`atan2`                        double                                     :spark:func:`log10`                        :spark:func:`regexp_extract_all`           :spark:func:`translate`                        mean
-    :spark:func:`atanh`                        e                                          :spark:func:`log1p`                        regexp_like                                :spark:func:`trim`                             :spark:func:`min`
+    :spark:func:`atanh`                        :spark:func:`e`                            :spark:func:`log1p`                        regexp_like                                :spark:func:`trim`                             :spark:func:`min`
     avg                                        :spark:func:`element_at`                   :spark:func:`log2`                         :spark:func:`regexp_replace`               :spark:func:`trunc`                            :spark:func:`min_by`
     base64                                     elt                                        :spark:func:`lower`                        :spark:func:`repeat`                       try_add                                        percentile
     :spark:func:`between`                      encode                                     :spark:func:`lpad`                         :spark:func:`replace`                      try_divide                                     percentile_approx

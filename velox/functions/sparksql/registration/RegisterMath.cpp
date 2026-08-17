@@ -110,6 +110,8 @@ void registerMathFunctions(const std::string& prefix) {
   registerFunction<RandnFunction, double, Constant<int64_t>>(
       {prefix + "randn"});
   registerFunction<SignFunction, double, double>({prefix + "sign"});
+  registerFunction<PiFunction, double>({prefix + "pi"});
+  registerFunction<EulerConstantFunction, double>({prefix + "e"});
 
   // Operators.
   registerBinaryNumeric<PlusFunction>({prefix + "add"});
