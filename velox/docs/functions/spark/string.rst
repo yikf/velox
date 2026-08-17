@@ -25,6 +25,20 @@ String Functions
 
         SELECT bit_length('123'); -- 24
 
+.. spark:function:: btrim(srcStr) -> varchar
+
+    Removes the leading and trailing space characters from ``srcStr``. ::
+
+        SELECT btrim('    SparkSQL   '); -- "SparkSQL"
+
+.. spark:function:: btrim(srcStr, trimStr) -> varchar
+    :noindex:
+
+    Removes the leading and trailing characters contained in ``trimStr`` from
+    ``srcStr``. ::
+
+        SELECT btrim('SSparkSQLS', 'SL'); -- "parkSQ"
+
 .. spark:function:: char_type_write_side_check(string, limit) -> varchar
 
     Ensures that input ``string`` fits within the specified length ``limit`` in characters by padding or trimming spaces as needed.

@@ -589,6 +589,43 @@ struct LTrimSpaceFunction : public TrimSpaceFunctionBase<T, true, false> {};
 template <typename T>
 struct RTrimSpaceFunction : public TrimSpaceFunctionBase<T, false, true> {};
 
+/// btrim(srcStr) -> varchar
+///     Removes leading and trailing space characters from srcStr.
+/// btrim(srcStr, trimStr) -> varchar
+///     Removes leading and trailing characters contained in trimStr from
+///     srcStr.
+///
+/// Unlike Spark's trim(trimStr FROM srcStr), btrim takes the source string as
+/// its first argument and the trim characters as its second, so this forwards
+/// to TrimFunctionBase with the arguments swapped.
+template <typename T>
+struct BTrimFunction {
+  VELOX_DEFINE_FUNCTION_TYPES(T);
+
+  // Results refer to strings in the first argument (srcStr).
+  static constexpr int32_t reuse_strings_from_arg = 0;
+
+  // ASCII input always produces ASCII result.
+  static constexpr bool is_default_ascii_behavior = true;
+
+  FOLLY_ALWAYS_INLINE void callAscii(
+      out_type<Varchar>& result,
+      const arg_type<Varchar>& srcStr,
+      const arg_type<Varchar>& trimStr) {
+    trim_.callAscii(result, trimStr, srcStr);
+  }
+
+  FOLLY_ALWAYS_INLINE void call(
+      out_type<Varchar>& result,
+      const arg_type<Varchar>& srcStr,
+      const arg_type<Varchar>& trimStr) {
+    trim_.call(result, trimStr, srcStr);
+  }
+
+ private:
+  TrimFunctionBase<T, true, true> trim_;
+};
+
 /// substr(string, start) -> varchar
 ///
 ///     Returns the rest of string from the starting position start.

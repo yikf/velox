@@ -1056,5 +1056,44 @@ TEST_F(StringTest, empty2Null) {
   EXPECT_EQ(empty2Null("abc"), "abc");
 }
 
+TEST_F(StringTest, btrim) {
+  const auto btrim = [&](const std::optional<std::string>& srcStr) {
+    return evaluateOnce<std::string>("btrim(c0)", srcStr);
+  };
+
+  // btrim takes the source string first and the trim characters second, the
+  // reverse of trim(trimStr, srcStr).
+  const auto btrimWithTrimStr = [&](const std::optional<std::string>& srcStr,
+                                    const std::optional<std::string>& trimStr) {
+    return evaluateOnce<std::string>("btrim(c0, c1)", srcStr, trimStr);
+  };
+
+  // Single-argument form trims spaces.
+  EXPECT_EQ(btrim(""), "");
+  EXPECT_EQ(btrim("  data\t "), "data\t");
+  EXPECT_EQ(btrim("   SparkSQL   "), "SparkSQL");
+  EXPECT_EQ(btrim("\u6570\u636E"), "\u6570\u636E");
+
+  // Two-argument form trims any character in trimStr from both ends.
+  EXPECT_EQ(btrimWithTrimStr("", ""), "");
+  EXPECT_EQ(btrimWithTrimStr("srcStr", ""), "srcStr");
+  EXPECT_EQ(btrimWithTrimStr("", "trimStr"), "");
+  EXPECT_EQ(btrimWithTrimStr("SSparkSQLS", "SL"), "parkSQ");
+  EXPECT_EQ(btrimWithTrimStr("integer data!", "data!egr< >int"), "");
+  EXPECT_EQ(btrimWithTrimStr("integer data!", "int"), "eger data!");
+  EXPECT_EQ(btrimWithTrimStr("integer data!", "!!at"), "integer d");
+  EXPECT_EQ(btrimWithTrimStr("integer data!", "a"), "integer data!");
+  EXPECT_EQ(
+      btrimWithTrimStr(
+          "\u6574\u6570 \u6570\u636E!", "\u6570\u6574!\u6570 \u636E!"),
+      "");
+  EXPECT_EQ(
+      btrimWithTrimStr("\u6574\u6570 \u6570\u636E!", " \u6574\u6570 "),
+      "\u636E!");
+  EXPECT_EQ(
+      btrimWithTrimStr("\u6574\u6570 \u6570\u636E!", "\u6570"),
+      "\u6574\u6570 \u6570\u636E!");
+}
+
 } // namespace
 } // namespace facebook::velox::functions::sparksql::test

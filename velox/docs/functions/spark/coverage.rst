@@ -152,6 +152,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     table.coverage tr:nth-child(45) td:nth-child(7) {background-color: #6BA81E;}
     table.coverage tr:nth-child(47) td:nth-child(2) {background-color: #6BA81E;}
     table.coverage tr:nth-child(47) td:nth-child(3) {background-color: #6BA81E;}
+    table.coverage tr:nth-child(48) td:nth-child(1) {background-color: #6BA81E;}
     table.coverage tr:nth-child(48) td:nth-child(3) {background-color: #6BA81E;}
     table.coverage tr:nth-child(49) td:nth-child(2) {background-color: #6BA81E;}
     table.coverage tr:nth-child(49) td:nth-child(3) {background-color: #6BA81E;}
@@ -255,7 +256,7 @@ Here is a list of all scalar, aggregate, and window functions from Spark, with f
     bool_or                                    first                                      :spark:func:`map_from_arrays`              :spark:func:`second`                       :spark:func:`uuid`                             :spark:func:`sum`
     boolean                                    first_value                                map_from_entries                           sentences                                  var_pop                                        try_avg
     bround                                     :spark:func:`flatten`                      :spark:func:`map_keys`                     sequence                                   var_samp                                       try_sum
-    btrim                                      float                                      :spark:func:`map_values`                   session_window                             variance                                       var_pop
+    :spark:func:`btrim`                        float                                      :spark:func:`map_values`                   session_window                             variance                                       var_pop
     cardinality                                :spark:func:`floor`                        :spark:func:`map_zip_with`                 sha                                        version                                        :spark:func:`var_samp`
     case                                       :spark:func:`forall`                       max                                        :spark:func:`sha1`                         :spark:func:`weekday`                          :spark:func:`variance`
     cast                                       format_number                              max_by                                     :spark:func:`sha2`                         weekofyear
